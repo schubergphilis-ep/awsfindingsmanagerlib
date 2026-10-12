@@ -1,0 +1,20 @@
+{
+  "template": "https://github.com/schubergphilis/paleofuturistic_python",
+  "commit": "c586cd4746d60755a5db87e1f7dbbbc4a22222c0",
+  "checkout": "v1.3.0",
+  "context": {
+    "cookiecutter": {
+      "project_name": "awsfindingsmanagerlib",
+      "project_slug": "awsfindingsmanagerlib",
+      "project_description": "Rule-based Python library for managing and suppressing findings in AWS Security Hub and its integrated services",
+      "full_name": "Schuberg Philis",
+      "email": "int-mcaf@schubergphilis.com",
+      "python_version": "3.12",
+      "include_apache_license": true,
+      "use_trusted_publishing": false,
+      "_template": "https://github.com/schubergphilis/paleofuturistic_python",
+      "_commit": "c586cd4746d60755a5db87e1f7dbbbc4a22222c0"
+    }
+  },
+  "directory": null
+}
