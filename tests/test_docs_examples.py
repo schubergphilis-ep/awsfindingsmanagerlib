@@ -31,23 +31,29 @@ def _extract_yaml_blocks(markdown_path: str) -> list[dict]:
 
 class TestDocsRuleExamples(TestCase):
     def test_every_rules_yaml_example_in_the_docs_is_valid(self):
-        blocks = _extract_yaml_blocks("docs/index.md")
-        self.assertTrue(blocks, "Expected at least one ```yaml block in docs/index.md")
+        for markdown_path in ("docs/index.md", "UPGRADING.md"):
+            blocks = _extract_yaml_blocks(markdown_path)
+            self.assertTrue(
+                blocks, f"Expected at least one ```yaml block in {markdown_path}"
+            )
+            for block in blocks:
+                with self.subTest(markdown_path=markdown_path, block=block):
+                    self._assert_block_is_valid(block)
 
-        for block in blocks:
-            with self.subTest(block=block):
-                if "ManagerConfig" in block:
-                    manager = Manager(
-                        **block["ManagerConfig"], client=SECURITYHUB_SESSION_CLIENT
-                    )
-                    if "Rules" in block:
-                        manager.set_rules(block["Rules"])
-                else:
-                    for rule_input in block["Rules"]:
-                        Rule(**rule_input, client=SECURITYHUB_SESSION_CLIENT)
+    @staticmethod
+    def _assert_block_is_valid(block: dict) -> None:
+        if "ManagerConfig" in block:
+            manager = Manager(
+                **block["ManagerConfig"], client=SECURITYHUB_SESSION_CLIENT
+            )
+            if "Rules" in block:
+                manager.set_rules(block["Rules"])
+        else:
+            for rule_input in block["Rules"]:
+                Rule(**rule_input, client=SECURITYHUB_SESSION_CLIENT)
 
     def test_migration_example_rules_file_is_valid(self):
-        """The awsfindingsmanagerlib -> awsfindingsmanagerlib migration example, translated from
+        """The 1.x -> 2.0 migration example, translated from
         terraform-aws-mcaf-securityhub-findings-manager's examples/rules.yaml, must stay valid.
         """
         with Path("docs/examples/rules.yaml").open() as file:

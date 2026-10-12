@@ -152,9 +152,7 @@ Installing the `lambda` extra (`awsfindingsmanagerlib[lambda]`, pulling in `aws-
 - `awsfindingsmanagerlib.aws_lambda.scheduled.lambda_handler`: applies all configured rules to every
   currently matching finding. Intended to run on a schedule (e.g. an EventBridge rule).
   Raises `RuntimeError` if any matched finding could not be processed, so the invocation is
-  reported as failed. `awsfindingsmanagerlib.aws_lambda_handler.lambda_handler` (awsfindingsmanagerlib 1.1.x's Lambda
-  handler) has been removed; if a Lambda is configured with that handler path, update it to
-  this one.
+  reported as failed.
 - `awsfindingsmanagerlib.aws_lambda.events.lambda_handler`: intended as the target of an EventBridge rule
   matching `"Security Hub Findings - Imported"` events. Suppresses the finding(s) carried by the
   event and returns `{"finding_state": "suppressed"}` or `{"finding_state": "skipped"}` instead of
@@ -202,32 +200,15 @@ workflow with `uv export --all-extras --no-dev` and contains `awsfindingsmanager
 a flat, importable layout. Add your `rules.yaml` (if not loading from S3) at the root of the zip
 alongside the `awsfindingsmanagerlib` package before uploading it.
 
-## Migrating from awsfindingsmanagerlib
+## Upgrading from 1.x
 
-awsfindingsmanagerlib's rule schema is not compatible with
-[awsfindingsmanagerlib](https://github.com/schubergphilis/awsfindingsmanagerlib)'s: this is a
-deliberate breaking change, not an oversight, since awsfindingsmanagerlib's filters map onto the
-`get_findings`/`batch_update_findings` boto3 API directly instead of a custom, narrower schema.
-The table below maps the fields used by
-[terraform-aws-mcaf-securityhub-findings-manager](https://github.com/schubergphilis/terraform-aws-mcaf-securityhub-findings-manager)'s
-example `rules.yaml` (one instance of each awsfindingsmanagerlib field it exercises) onto their
-awsfindingsmanagerlib equivalents; see `docs/examples/rules.yaml` in this repository for the fully translated
-file.
+2.0 is a complete rewrite and is not compatible with 1.x: rules are no longer written under `match_on`, but map
+directly onto the `get_findings`/`batch_update_findings` boto3 API, and the Python API changed accordingly.
+See [UPGRADING.md](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/blob/main/UPGRADING.md)
+for a field-by-field mapping, a script converting a 1.x `rules.yaml`, and the behavioural differences.
 
-| awsfindingsmanagerlib | awsfindingsmanagerlib |
-|---|---|
-| `note` | `UpdatesToFilteredFindings.Note.Text` |
-| `action: SUPPRESSED` | `UpdatesToFilteredFindings.Workflow.Status: SUPPRESSED` |
-| `match_on.security_control_id` | `Filters.ComplianceSecurityControlId` |
-| `match_on.tags` (a list of `{key, value}`, matching any of them) | `Filters.ResourceTags` (a list of `{Key, Value, Comparison: EQUALS}`; multiple entries are also matched as "any of") |
-| `match_on.resource_id_regexps` | `ExtraFeatures.RegexStringFilters.ResourceId` (not a native boto3 filter; evaluated by awsfindingsmanagerlib itself, same as awsfindingsmanagerlib) |
-| `match_on.regions` | `Filters.Region` |
-
-awsfindingsmanagerlib's default filter (`WorkflowStatus` in `NEW`/`NOTIFIED`) and its
-`NoteTextConfig(format="json")` merging behaviour (used by
-terraform-aws-mcaf-securityhub-findings-manager so that a suppression note merges into, rather
-than overwrites, a Jira ticket's `jiraIssue`/`jiraInstance` metadata) both have direct awsfindingsmanagerlib
-equivalents, set once via `ManagerConfig.DefaultRuleInput` rather than per-rule:
+Behaviours that 1.x applied implicitly (the default `WorkflowStatus` filter, the note author and the note format)
+are set once for all rules via `ManagerConfig.DefaultRuleInput`, for instance:
 
 ```yaml
 ManagerConfig:

@@ -1,6 +1,6 @@
-# Translation of terraform-aws-mcaf-securityhub-findings-manager's example awsfindingsmanagerlib
-# rules (examples/rules.yaml in that repository) into the awsfindingsmanagerlib schema. See "Migrating from
-# awsfindingsmanagerlib" in docs/index.md for the field-by-field mapping.
+# Translation of terraform-aws-mcaf-securityhub-findings-manager's example 1.x rules
+# (examples/rules.yaml in that repository) into the 2.0 schema. See UPGRADING.md in the
+# repository root for the field-by-field mapping.
 ManagerConfig:
   DefaultRuleInput:
     Filters:
