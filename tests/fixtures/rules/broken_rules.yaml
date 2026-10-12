@@ -1,0 +1,38 @@
+Rules:
+- Filters:
+    AwsAcrowntId:
+    - Value: '123456789012'
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note: Dev account
+- Filters:
+    AwsAccountId:
+    - Value: '123456789098'
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    FindingIdentifiers:
+    - Id: abcd1234-ef56-7890-ab12-cd34ef567890
+      ProductArn: arn:aws:securityhub:us-east-1/123456789098:product/123456789098/default
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Dev account
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    WorkflowStatus:
+    - Value: NEW
+      Comparison: EQUALS
+    - Value: NOTIFIED
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+  ExtraFeatures:
+    RegexStringFilters:
+      ResoureId:
+      - .*dev.*

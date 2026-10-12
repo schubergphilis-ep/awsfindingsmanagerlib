@@ -1,6 +1,8 @@
 site_name: awsfindingsmanagerlib
 site_author: Schuberg Philis
 site_description: Rule-based Python library for managing and suppressing findings in AWS Security Hub and its integrated services
+site_url: https://schubergphilis-ep.github.io/awsfindingsmanagerlib/
+repo_url: https://github.com/schubergphilis-ep/awsfindingsmanagerlib
 
 theme:
   name: mkdocs
@@ -10,6 +12,12 @@ theme:
 
 nav:
   - Home: index.md
+  - Glossary:
+    - "Main top-level functionality": glossary/index.md
+    - "Generic utilities": glossary/utils.md
+    - "Boto-related utilities": glossary/boto_utils.md
+    - "Domain models": glossary/filters.md
+    - "AWS Lambda handlers": glossary/aws_lambda.md
 
 watch:
   - src
@@ -35,7 +43,7 @@ plugins:
           parameter_headings: true
           separate_signature: true
           show_bases: true
-          show_inheritance_diagram: true
+          show_inheritance_diagram: false
           show_root_heading: true
           show_root_full_path: false
           show_source: false

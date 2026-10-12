@@ -1,0 +1,79 @@
+{
+    "Findings": [
+        {
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.8",
+            "AwsAccountId": "123456789012",
+            "CreatedAt": "2025-12-09T08:53:43.702Z",
+            "UpdatedAt": "2025-12-09T08:53:43.702Z",
+            "Title": "S3.8 S3 general purpose buckets should block public access",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket blocks public access at the bucket level.",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/2f428174-0020-4302-b474-386d400595dd",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Resources": [
+                {
+                    "Type": "AwsS3Bucket",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ],
+            "Workflow": {
+                "Status": "NEW"
+            },
+            "Note": {
+                "Text": "{\"jiraIssue\":\"PROJ-123\",\"suppressionReason\":\"override me\"}",
+                "UpdatedBy": "ticketBot",
+                "UpdatedAt": "2023-05-16T01:14:08Z"
+            }
+        },
+        {
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "cis-aws-foundations-benchmark/v/3.0.0/2.1.4.2",
+            "AwsAccountId": "123456789012",
+            "CreatedAt": "2025-12-09T08:53:43.701Z",
+            "UpdatedAt": "2025-12-09T08:53:43.701Z",
+            "Title": "2.1.4.2 S3 Block Public Access setting should be enabled at the bucket-level",
+            "Description": "This control checks if Amazon S3 buckets have bucket level public access blocks applied.",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.4.2/finding/92696de8-2ccb-4cf0-bc67-fff41107ebbf",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Resources": [
+                {
+                    "Type": "AwsS3Bucket",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ],
+            "Workflow": {
+                "Status": "NEW"
+            },
+            "Note": {
+                "Text": "{\"jiraIssue\":\"PROJ-123\",\"suppressionReason\":\"some old value\"}",
+                "UpdatedBy": "ticketBot",
+                "UpdatedAt": "2023-05-16T01:14:08Z"
+            }
+        },
+        {
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.13",
+            "AwsAccountId": "123456789012",
+            "CreatedAt": "2025-12-09T08:53:40.568Z",
+            "UpdatedAt": "2025-12-09T08:53:40.568Z",
+            "Title": "S3.13 S3 general purpose buckets should have Lifecycle configurations",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket has a Lifecycle configuration.",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.13/finding/7ce3cdfc-f380-45f7-9e41-15a0647cd289",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Resources": [
+                {
+                    "Type": "AwsS3Bucket",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ],
+            "Workflow": {
+                "Status": "NEW"
+            },
+            "Note": {
+                "Text": "{\"jiraIssue\":\"PROJ-456\",\"suppressionReason\":\"override me\"}",
+                "UpdatedBy": "ticketBot",
+                "UpdatedAt": "2023-05-16T01:14:08Z"
+            }
+        }
+    ]
+}

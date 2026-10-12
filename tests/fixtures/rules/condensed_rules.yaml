@@ -1,0 +1,24 @@
+ManagerConfig:
+  DefaultRuleInput:
+    Filters:
+      WorkflowStatus:
+      - Value: NEW
+        Comparison: EQUALS
+      - Value: NOTIFIED
+        Comparison: EQUALS
+    UpdatesToFilteredFindings:
+      Workflow:
+        Status: SUPPRESSED
+      Note:
+        UpdatedBy: awsfindingsmanagerlib
+    ExtraFeatures:
+      RegexStringFilters:
+        ProductArn:
+        - .*config$
+Rules:
+- Filters:
+    ResourceId:
+    - Value: arn:aws:s3:::test-awsfindingsmanagerlib
+      Comparison: EQUALS
+  ExtraFeatures:
+    QuickNote: Test

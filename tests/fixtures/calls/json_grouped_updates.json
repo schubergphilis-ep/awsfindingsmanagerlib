@@ -1,0 +1,30 @@
+[
+    {
+        "Note": {
+            "Text": "{\"jiraIssue\":\"PROJ-123\",\"suppressionReason\":\"Test test\"}",
+            "UpdatedBy": "awsfindingsmanagerlib"
+        },
+        "FindingIdentifiers": [
+            {
+                "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/2f428174-0020-4302-b474-386d400595dd",
+                "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+            },
+            {
+                "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.4.2/finding/92696de8-2ccb-4cf0-bc67-fff41107ebbf",
+                "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+            }
+        ]
+    },
+    {
+        "Note": {
+            "Text": "{\"jiraIssue\":\"PROJ-456\",\"suppressionReason\":\"Test test\"}",
+            "UpdatedBy": "awsfindingsmanagerlib"
+        },
+        "FindingIdentifiers": [
+            {
+                "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.13/finding/7ce3cdfc-f380-45f7-9e41-15a0647cd289",
+                "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+            }
+        ]
+    }
+]

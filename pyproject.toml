@@ -7,12 +7,29 @@ authors = [
     {name = "Schuberg Philis", email = "int-mcaf@schubergphilis.com"},
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "boto3>=1.42.93",
+]
 classifiers = [
     # License
     "License :: OSI Approved :: Apache Software License",
     # Python versions supported by the package
     "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/schubergphilis-ep/awsfindingsmanagerlib"
+Documentation = "https://schubergphilis-ep.github.io/awsfindingsmanagerlib/"
+Repository = "https://github.com/schubergphilis-ep/awsfindingsmanagerlib"
+Changelog = "https://github.com/schubergphilis-ep/awsfindingsmanagerlib/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+lambda = [
+    "aws-lambda-powertools>=3.28.0",
+    "pyyaml>=6.0.3",
 ]
 
 # click is a transient dependency, but broken beyond version 8.2.1
@@ -22,40 +39,80 @@ classifiers = [
 dev = [
     "click<=8.2.1",
     "mkdocs==1.6.1",
-    "mkdocstrings[python]==0.30.1",
-    "mypy==1.18.2",
-    "ruff==0.13.1",
+    "mkdocstrings[python]==1.0.0",
+    "mypy==1.19.0",
+    "ruff==0.14.7",
 ]
 
 [build-system]
 requires = ["uv_build>=0.8.15,<0.10.0"]
 build-backend = "uv_build"
 
-[tool.ruff.lint]
-select = [
-    # pycodestyle
-    "E",
-    # Pyflakes
-    "F",
-    # pyupgrade
-    "UP",
-    # flake8-bugbear
-    "B",
-    # flake8-simplify
-    "SIM",
-    # isort
-    "I",
+[tool.uv]
+exclude-newer = "2026-09-30T00:00:00Z"
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "scratch",
 ]
+
+[tool.ruff.lint]
+select = ["ALL"]
 # Recommended ignore list for preventing clashes between ruff lint and ruff format.
 ignore = [
+    # missing-trailing-comma
+    "COM812",
     # indentation-with-invalid-multiple
     "E111",
     # indentation-with-invalid-multiple-comment
     "E114",
     # over-indented
     "E117",
+    # line-too-long
+    "E501",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    # flake8-annotations
+    "ANN",
+    # pydocstyle
+    "D",
+    # flake8-pytest-style
+    "PT",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
 
 [tool.mypy]
 files = ["src/"]
 disallow_untyped_defs = true
+follow_untyped_imports = true
