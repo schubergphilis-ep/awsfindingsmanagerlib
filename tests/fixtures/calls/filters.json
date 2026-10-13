@@ -1,0 +1,21 @@
+{
+    "Filters": {
+        "ResourceId": [
+            {
+                "Value": "arn:aws:s3:::test-awsfindingsmanagerlib",
+                "Comparison": "EQUALS"
+            }
+        ],
+        "WorkflowStatus": [
+            {
+                "Value": "NEW",
+                "Comparison": "EQUALS"
+            },
+            {
+                "Value": "NOTIFIED",
+                "Comparison": "EQUALS"
+            }
+        ]
+    },
+    "MaxResults": 100
+}

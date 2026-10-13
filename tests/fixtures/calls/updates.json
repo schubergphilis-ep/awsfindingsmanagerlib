@@ -1,0 +1,27 @@
+{
+    "Workflow": {
+        "Status": "SUPPRESSED"
+    },
+    "Note": {
+        "Text": "Test",
+        "UpdatedBy": "awsfindingsmanagerlib"
+    },
+    "FindingIdentifiers": [
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-f9k28d/finding/c0255ae72755ecd8b32b21e12fc1f41972dba902",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-4xm5jr/finding/05d58ef6c22e11d3c6901c5a572c03218a516577",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-multiaccountsetup.amazonaws.com/config-rule-rl0hpr/finding/762fdd3fef679ed6db82adbd42095feab2841c77",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-3ol7hu/finding/11eff3ac751abb34509f4059d6286fd12898c93a",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        }
+    ]
+}

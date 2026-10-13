@@ -1,0 +1,66 @@
+# Translation of terraform-aws-mcaf-securityhub-findings-manager's example awsfindingsmanagerlib
+# rules (examples/rules.yaml in that repository) into the awsfindingsmanagerlib schema. See "Migrating from
+# awsfindingsmanagerlib" in docs/index.md for the field-by-field mapping.
+ManagerConfig:
+  DefaultRuleInput:
+    Filters:
+      WorkflowStatus:
+      - Value: NEW
+        Comparison: EQUALS
+      - Value: NOTIFIED
+        Comparison: EQUALS
+    UpdatesToFilteredFindings:
+      Workflow:
+        Status: SUPPRESSED
+      Note:
+        UpdatedBy: awsfindingsmanagerlib
+    ExtraFeatures:
+      NoteTextConfig:
+        Mode: jsonUpdate
+        Key: Note
+Rules:
+- Filters:
+    ComplianceSecurityControlId:
+    - Value: S3.20
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Note:
+      Text: MF-Neigh
+- Filters:
+    ComplianceSecurityControlId:
+    - Value: S3.14
+      Comparison: EQUALS
+    ResourceTags:
+    - Key: ManagedBy
+      Value: Terraform
+      Comparison: EQUALS
+    - Key: ManagedBy
+      Value: CFN
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Note:
+      Text: Config as code
+- Filters:
+    ComplianceSecurityControlId:
+    - Value: S3.9
+      Comparison: EQUALS
+  ExtraFeatures:
+    RegexStringFilters:
+      ResourceId:
+      - ^arn:aws:s3:::.*-dev$
+      - ^arn:aws:s3:::.*-acc$
+  UpdatesToFilteredFindings:
+    Note:
+      Text: Too expensive on non-prod
+- Filters:
+    ComplianceSecurityControlId:
+    - Value: EC2.172
+      Comparison: EQUALS
+    Region:
+    - Value: us-east-1
+      Comparison: EQUALS
+    - Value: eu-central-1
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Note:
+      Text: Suppress EC2.172 on us-east-1 and eu-central-1

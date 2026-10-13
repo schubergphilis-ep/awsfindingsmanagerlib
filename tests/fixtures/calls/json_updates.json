@@ -1,0 +1,12 @@
+{
+    "Note": {
+        "Text": "{\"jiraIssue\":\"PROJ-123\",\"suppressionReason\":\"Test test\"}",
+        "UpdatedBy": "awsfindingsmanagerlib"
+    },
+    "FindingIdentifiers": [
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/2f428174-0020-4302-b474-386d400595dd",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        }
+    ]
+}

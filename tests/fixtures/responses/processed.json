@@ -1,0 +1,65 @@
+{
+    "ProcessedFindings": [
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.9/finding/4aae4613-4a2a-4c27-a8a1-91fa808d16c3",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/2f428174-0020-4302-b474-386d400595dd",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.2/finding/8cafd2b7-73ff-4dae-8176-2127deff1b0a",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-multiaccountsetup.amazonaws.com/config-rule-rl0hpr/finding/762fdd3fef679ed6db82adbd42095feab2841c77",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-3ol7hu/finding/11eff3ac751abb34509f4059d6286fd12898c93a",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.4.2/finding/92696de8-2ccb-4cf0-bc67-fff41107ebbf",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-f9k28d/finding/c0255ae72755ecd8b32b21e12fc1f41972dba902",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.3/finding/5c4b034f-393e-41ad-b175-cb79d87677e5",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.6/finding/c6af1ca0-5e77-4aec-bbf5-44c68de1d4d9",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.12/finding/05f135ae-c4db-4495-93c6-975dcbfdaa0b",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.1/finding/1f43e04b-3aad-4b87-9b18-763a970398b1",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.5/finding/229ec556-246b-47cb-86cb-ac6db6086ae5",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.13/finding/7ce3cdfc-f380-45f7-9e41-15a0647cd289",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.2/finding/a25a258d-4e51-4860-ae08-47030a8dd8f5",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+        },
+        {
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-4xm5jr/finding/05d58ef6c22e11d3c6901c5a572c03218a516577",
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config"
+        }
+    ],
+    "UnprocessedFindings": []
+}

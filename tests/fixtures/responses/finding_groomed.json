@@ -1,0 +1,90 @@
+{
+    "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+    "Description": "This control checks whether an Amazon S3 general purpose bucket blocks public access at the bucket level. The control fails if any of the following settings are set to false: ignorePublicAcls, blockPublicPolicy, blockPublicAcls, restrictPublicBuckets.",
+    "CreatedAt": "2025-12-09T08:53:43.702Z",
+    "SchemaVersion": "2018-10-08",
+    "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.8",
+    "Title": "S3.8 S3 general purpose buckets should block public access",
+    "UpdatedAt": "2025-12-09T08:53:43.702Z",
+    "AwsAccountId": "123456789012",
+    "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/2f428174-0020-4302-b474-386d400595dd",
+    "Resources": [
+        {
+            "Partition": "aws",
+            "Type": "AwsS3Bucket",
+            "Details": {
+                "AwsS3Bucket": {
+                    "OwnerId": "000verylongstring000",
+                    "CreatedAt": "2025-12-09T08:52:34.000Z",
+                    "Name": "test-awsfindingsmanagerlib"
+                }
+            },
+            "Region": "eu-west-1",
+            "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+        },
+        {
+            "Partition": "aws",
+            "Type": "AwsEc2Instance",
+            "Details": {
+                "AwsEc2Instance": {
+                    "KeyName": "prod-key",
+                    "Type": "t3.medium",
+                    "VpcId": "vpc-42r0u35ytgnb9853g",
+                    "ImageId": "ami-24f08y4gb09u42fg09j",
+                    "IpV4Addresses": [
+                        "10.12.34.56",
+                        "10.34.56.12",
+                        "10.56.12.34"
+                    ]
+                }
+            },
+            "Region": "eu-west-1",
+            "Id": "arn:aws:ec2:eu-west-1:123456789012:instance/i-4t098yu35g909"
+        }
+    ],
+    "Types": [
+        "Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices"
+    ],
+    "Confidence": 42,
+    "Criticality": 5,
+    "Severity": {
+        "Product": 5,
+        "Label": "MEDIUM",
+        "Normalized": 50
+    },
+    "ProductFields": {
+        "API": "DeleteTrail"
+    },
+    "UserDefinedFields": {
+        "checked": "yes",
+        "important": "no"
+    },
+    "Compliance": {
+        "SecurityControlParameters": [
+            {
+                "Name": "rainbowPasswords",
+                "Value": [
+                    "password",
+                    "123456",
+                    "admin"
+                ]
+            },
+            {
+                "Name": "rainbowAdmins",
+                "Value": [
+                    "admin",
+                    "root",
+                    "superuser"
+                ]
+            }
+        ]
+    },
+    "Workflow": {
+        "Status": "NEW"
+    },
+    "Note": {
+        "Text": "{\"jiraIssue\":\"PROJ-123\",\"suppressionReason\":\"override me\"}",
+        "UpdatedBy": "ticketBot",
+        "UpdatedAt": "2023-05-16T01:14:08Z"
+    }
+}

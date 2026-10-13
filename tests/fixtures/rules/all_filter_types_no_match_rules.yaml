@@ -1,0 +1,132 @@
+Rules:
+- Filters:
+    ProductArn:
+    - Value: arn:aws:securityhub:eu-west-1::product/aws/config
+      Comparison: EQUALS
+    - Value: arn:aws:securityhub:eu-central-1
+      Comparison: PREFIX
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    GeneratorId:
+    - Value: aws-foundational-security-best-practices/v/1.0.0/S3.8
+      Comparison: NOT_EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    Title:
+    - Value: S3.8
+      Comparison: PREFIX_NOT_EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    CreatedAt:
+    - End: "2024-12-10T08:53:43.702Z"
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    CreatedAt:
+    - DateRange:
+        Unit: DAYS
+        Value: 10
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    Criticality:
+    - Gt: 1.0
+      Lte: 4.0
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    SeverityNormalized:
+    - Lte: 5.0
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    UserDefinedFields:
+    - Key: API
+      Value: CreateTrail
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    UserDefinedFields:
+    - Key: important
+      Value: "no"
+      Comparison: NOT_EQUALS
+    - Key: checked
+      Value: "no"
+      Comparison: NOT_EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    ComplianceSecurityControlParametersValue:
+    - Value: letmein
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    ResourceAwsEc2InstanceIpV4Addresses:
+    - Cidr: 10.65.43.21
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+- Filters:
+    WorkflowStatus:
+    - Value: NEW
+      Comparison: EQUALS
+    - Value: NOTIFIED
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+  ExtraFeatures:
+    RegexStringFilters:
+      ResourceId:
+      - .*dev.*
