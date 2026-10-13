@@ -210,4 +210,6 @@ def validate_call_params(
         boto_stub_calls,
     ) as _:
         for response in boto_stub_calls:
-            getattr(boto_session_client, response.method)(**response.expected_params)
+            getattr(boto_session_client, response.method)(
+                **(response.expected_params or {})
+            )

@@ -1,4 +1,4 @@
-import datetime
+import datetime as dt
 import json
 import os
 from pathlib import Path
@@ -174,7 +174,7 @@ class TestGetValuesByBotoArgument(TestCase):
 
 class TestRuleDataclass(TestCase):
     def setUp(self):
-        self.fixed_now = datetime.datetime(2026, 1, 1, 12, 0, 0, 0, datetime.UTC)
+        self.fixed_now = dt.datetime(2026, 1, 1, 12, 0, 0, 0, dt.UTC)
         patcher = patch(
             "awsfindingsmanagerlib.filters.DateCriterion._now_utc",
             return_value=self.fixed_now,

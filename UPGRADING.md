@@ -81,68 +81,74 @@ Review the `ManagerConfig` block it prints and adjust it to the defaults you rel
 ```python
 import yaml
 
-old_rules = yaml.safe_load(open('rules.yaml'))['Rules']
+old_rules = yaml.safe_load(open("rules.yaml"))["Rules"]
 
 
 def equals(values):
-    return [{'Value': value, 'Comparison': 'EQUALS'} for value in values]
+    return [{"Value": value, "Comparison": "EQUALS"} for value in values]
 
 
 def convert(rule):
-    match_on = rule.get('match_on', {})
+    match_on = rule.get("match_on", {})
     filters = {}
 
-    if 'security_control_id' in match_on:
-        filters['ComplianceSecurityControlId'] = equals([match_on['security_control_id']])
-    if 'rule_or_control_id' in match_on:
+    if "security_control_id" in match_on:
+        filters["ComplianceSecurityControlId"] = equals(
+            [match_on["security_control_id"]]
+        )
+    if "rule_or_control_id" in match_on:
         # The old library matched either field, depending on the standard.
-        filters['ProductFields'] = [
-            {'Key': key, 'Value': match_on['rule_or_control_id'], 'Comparison': 'EQUALS'}
-            for key in ('ControlId', 'RuleId')
+        filters["ProductFields"] = [
+            {
+                "Key": key,
+                "Value": match_on["rule_or_control_id"],
+                "Comparison": "EQUALS",
+            }
+            for key in ("ControlId", "RuleId")
         ]
-    if 'title' in match_on:
-        filters['Title'] = equals([match_on['title']])
-    if 'product_name' in match_on:
-        filters['ProductName'] = equals([match_on['product_name']])
-    if 'regions' in match_on:
-        filters['Region'] = equals(match_on['regions'])
-    if 'tags' in match_on:
-        filters['ResourceTags'] = [
-            {'Key': tag['key'], 'Value': tag['value'], 'Comparison': 'EQUALS'}
-            for tag in match_on['tags']
+    if "title" in match_on:
+        filters["Title"] = equals([match_on["title"]])
+    if "product_name" in match_on:
+        filters["ProductName"] = equals([match_on["product_name"]])
+    if "regions" in match_on:
+        filters["Region"] = equals(match_on["regions"])
+    if "tags" in match_on:
+        filters["ResourceTags"] = [
+            {"Key": tag["key"], "Value": tag["value"], "Comparison": "EQUALS"}
+            for tag in match_on["tags"]
         ]
 
     new_rule = {
-        'Filters': filters,
-        'UpdatesToFilteredFindings': {
-            'Workflow': {'Status': rule['action']},
-            'Note': {'Text': rule['note']},
+        "Filters": filters,
+        "UpdatesToFilteredFindings": {
+            "Workflow": {"Status": rule["action"]},
+            "Note": {"Text": rule["note"]},
         },
     }
 
-    if 'resource_id_regexps' in match_on:
-        new_rule['ExtraFeatures'] = {
-            'RegexStringFilters': {'ResourceId': match_on['resource_id_regexps']}
+    if "resource_id_regexps" in match_on:
+        new_rule["ExtraFeatures"] = {
+            "RegexStringFilters": {"ResourceId": match_on["resource_id_regexps"]}
         }
 
     return new_rule
 
 
 document = {
-    'ManagerConfig': {
-        'DefaultRuleInput': {
-            'Filters': {
-                'WorkflowStatus': equals(['NEW', 'NOTIFIED']),
+    "ManagerConfig": {
+        "DefaultRuleInput": {
+            "Filters": {
+                "WorkflowStatus": equals(["NEW", "NOTIFIED"]),
             },
-            'UpdatesToFilteredFindings': {
-                'Note': {'UpdatedBy': 'FindingsManager'},
+            "UpdatesToFilteredFindings": {
+                "Note": {"UpdatedBy": "FindingsManager"},
             },
-            'ExtraFeatures': {
-                'NoteTextConfig': {'Mode': 'plaintext'},
+            "ExtraFeatures": {
+                "NoteTextConfig": {"Mode": "plaintext"},
             },
         },
     },
-    'Rules': [convert(rule) for rule in old_rules],
+    "Rules": [convert(rule) for rule in old_rules],
 }
 
 print(yaml.dump(document, sort_keys=False, indent=2))

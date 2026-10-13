@@ -97,6 +97,8 @@ ignore = [
     "E117",
     # line-too-long
     "E501",
+    # missing-copyright-notice
+    "CPY001",
 ]
 
 [tool.ruff.lint.per-file-ignores]
