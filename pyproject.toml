@@ -1,6 +1,6 @@
 [project]
 name = "awsfindingsmanagerlib"
-version = "0.0.0"
+version = "1.5.0"
 description = "Rule-based Python library for managing and suppressing findings in AWS Security Hub and its integrated services"
 readme = "README.md"
 authors = [

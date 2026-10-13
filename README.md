@@ -52,8 +52,13 @@ rule = Rule(**rules[0], client=client)
 rule.get_and_update()
 ```
 
-See the [documentation](https://carlovosbp.github.io/awsfindingsmanagerlib/) for the full rule syntax,
+See the [documentation](https://schubergphilis-ep.github.io/awsfindingsmanagerlib/) for the full rule syntax,
 the `Manager` API for managing many rules at once, and how to run awsfindingsmanagerlib as an AWS Lambda.
+
+## Upgrading
+
+Coming from 1.x? Version 2.0 is a rewrite with a different rules schema and Python API.
+See [UPGRADING.md](UPGRADING.md).
 
 ## Developing further
 
