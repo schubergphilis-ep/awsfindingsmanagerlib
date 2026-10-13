@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/schubergphilis/paleofuturistic_python",
-  "commit": "c586cd4746d60755a5db87e1f7dbbbc4a22222c0",
-  "checkout": "v1.3.0",
+  "commit": "777426fe6aebdd3f38f6403f43dde54f1cd104a1",
+  "checkout": "v1.4.0",
   "context": {
     "cookiecutter": {
       "project_name": "awsfindingsmanagerlib",
@@ -13,7 +13,7 @@
       "include_apache_license": true,
       "use_trusted_publishing": false,
       "_template": "https://github.com/schubergphilis/paleofuturistic_python",
-      "_commit": "c586cd4746d60755a5db87e1f7dbbbc4a22222c0"
+      "_commit": "777426fe6aebdd3f38f6403f43dde54f1cd104a1"
     }
   },
   "directory": null
