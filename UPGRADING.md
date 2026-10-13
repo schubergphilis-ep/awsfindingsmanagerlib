@@ -227,16 +227,3 @@ attached to each GitHub release contains the library with its dependencies.
 
 If you use [terraform-aws-mcaf-securityhub-findings-manager](https://github.com/schubergphilis/terraform-aws-mcaf-securityhub-findings-manager),
 follow that module's own upgrade notes for the version that switches to this library.
-
-### Coming from sechubman (v2.0.0)
-
-sechubman was the working name of this rewrite. Its rules schema is identical, so rules files work unchanged.
-
-- Replace the `sechubman` dependency by `awsfindingsmanagerlib` and change imports from `sechubman` to `awsfindingsmanagerlib`.
-- Lambda handler paths follow the package rename: `sechubman.aws_lambda.<handler>.lambda_handler` becomes
-  `awsfindingsmanagerlib.aws_lambda.<handler>.lambda_handler`. The old `aws_lambda_handler.lambda_handler` module was
-  removed before this release; use `awsfindingsmanagerlib.aws_lambda.scheduled.lambda_handler` instead.
-- The trigger Lambda reads the queue from `SQS_QUEUE_URL` (previously `SQS_QUEUE_NAME`, which held a URL despite its name).
-- The worker Lambda reports partial batch item failures, so enable `ReportBatchItemFailures` on its SQS event source
-  mapping for failed records to be retried and eventually reach the dead-letter queue.
-- The handlers no longer force `POWERTOOLS_LOGGER_LOG_EVENT=true`. Set that environment variable yourself if you want events logged.
