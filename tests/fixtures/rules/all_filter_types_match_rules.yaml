@@ -1,0 +1,66 @@
+Rules:
+- Filters:
+    ProductArn:
+    - Value: arn:aws:securityhub:eu-west-1::product/aws/config
+      Comparison: EQUALS
+    - Value: arn:aws:securityhub:eu-west-1::product/aws/securityhub
+      Comparison: EQUALS
+    GeneratorId:
+    - Value: aws-foundational-security-best-practices
+      Comparison: PREFIX
+    - Value: arn:aws:config
+      Comparison: PREFIX
+    Description:
+    - Value: experimental
+      Comparison: NOT_EQUALS
+    - Value: CIS
+      Comparison: PREFIX_NOT_EQUALS
+    Type:
+    - Value: Software and Configuration Checks
+      Comparison: PREFIX
+    CreatedAt:
+    - Start: "2024-12-09T08:53:43.702Z"
+      End: "2026-12-09T08:53:43.702Z"
+    UpdatedAt:
+    - DateRange:
+        Unit: DAYS
+        Value: 100
+    Confidence:
+    - Eq: 42.0
+    Criticality:
+    - Gte: 0.0
+      Lt: 9.0
+    SeverityLabel:
+    - Value: MEDIUM
+      Comparison: EQUALS
+    ProductFields:
+    - Key: API
+      Value: DeleteTrail
+      Comparison: EQUALS
+    - Key: API
+      Value: CreateTrail
+      Comparison: EQUALS
+    UserDefinedFields:
+    - Key: important
+      Value: "yes"
+      Comparison: EQUALS
+    - Key: checked
+      Value: "yes"
+      Comparison: EQUALS
+    ComplianceSecurityControlParametersValue:
+    - Value: letmein
+      Comparison: EQUALS
+    - Value: root
+      Comparison: EQUALS
+    ResourceAwsEc2InstanceIpV4Addresses:
+    - Cidr: 10.34.56.12
+  UpdatesToFilteredFindings:
+    Workflow:
+      Status: SUPPRESSED
+    Note:
+      Text: Test
+      UpdatedBy: awsfindingsmanagerlib
+  ExtraFeatures:
+    RegexStringFilters:
+      ResourceId:
+      - .*test.*

@@ -2,11 +2,63 @@
 
 Rule-based Python library for managing and suppressing findings in AWS Security Hub and its integrated services
 
-## Usage
+Full documentation, including rule syntax and code examples, is available
+[here](https://schubergphilis-ep.github.io/awsfindingsmanagerlib/).
 
-Legacy: `pip install awsfindingsmanagerlib`
+## Features
 
-Preferred: `uv add awsfindingsmanagerlib`
+- Rules map directly onto the `get_findings`/`batch_update_findings` boto3 API, so anything the
+  Security Hub API supports as a filter or update is available without extra abstraction.
+- A `Manager` lets you set shared defaults (filters, updates, note handling) once and have
+  individual rules override only what differs.
+- Regex matching on string fields (`ExtraFeatures.RegexStringFilters`), not natively supported by
+  the API, is layered on top.
+- JSON-formatted suppression notes (`ExtraFeatures.NoteTextConfig`) merge into existing
+  JSON-formatted note metadata, e.g. to coexist with a ticketing system's own note fields.
+- Ready-made AWS Lambda handlers (`awsfindingsmanagerlib[lambda]`) for running suppression on a schedule, or
+  as an event-driven pipeline reacting to new findings and to rules-file changes.
+
+## Installation
+
+```bash
+uv add awsfindingsmanagerlib
+# or, with the AWS Lambda handlers:
+uv add 'awsfindingsmanagerlib[lambda]'
+```
+
+```bash
+pip install awsfindingsmanagerlib
+# or
+pip install 'awsfindingsmanagerlib[lambda]'
+```
+
+## Quick start
+
+```python
+from pathlib import Path
+
+import boto3
+import yaml
+
+from awsfindingsmanagerlib import Rule
+
+
+with Path("rules.yaml").open() as file:
+    rules = yaml.safe_load(file)["Rules"]
+
+client = boto3.client("securityhub")
+
+rule = Rule(**rules[0], client=client)
+rule.get_and_update()
+```
+
+See the [documentation](https://schubergphilis-ep.github.io/awsfindingsmanagerlib/) for the full rule syntax,
+the `Manager` API for managing many rules at once, and how to run awsfindingsmanagerlib as an AWS Lambda.
+
+## Upgrading
+
+Coming from 1.x? Version 2.0 is a rewrite with a different rules schema and Python API.
+See [UPGRADING.md](UPGRADING.md).
 
 ## Developing further
 

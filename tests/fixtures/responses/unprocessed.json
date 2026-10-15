@@ -1,0 +1,13 @@
+{
+    "ProcessedFindings": [],
+    "UnprocessedFindings": [
+        {
+            "FindingIdentifier": {
+                "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.2/finding/a25a258d-4e51-4860-ae08-47030a8dd8f5",
+                "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub"
+            },
+            "ErrorCode": "InternalError",
+            "ErrorMessage": "An internal error occurred."
+        }
+    ]
+}
