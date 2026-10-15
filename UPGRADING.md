@@ -231,5 +231,5 @@ If you ran 1.x in your own Lambda, you can now use the handlers in `awsfindingsm
 (`scheduled`, `events`, `trigger` and `worker`); see "Running in AWS Lambda" in the documentation. The `lambda_package.zip`
 attached to each GitHub release contains the library with its dependencies.
 
-If you use [terraform-aws-mcaf-securityhub-findings-manager](https://github.com/schubergphilis/terraform-aws-mcaf-securityhub-findings-manager),
+If you use [terraform-aws-mcaf-securityhub-findings-manager](https://github.com/schubergphilis-ep/terraform-aws-mcaf-securityhub-findings-manager),
 follow that module's own upgrade notes for the version that switches to this library.
