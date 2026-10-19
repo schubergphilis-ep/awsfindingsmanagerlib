@@ -1,0 +1,18 @@
+Rules:
+- Filters:
+    ResourceId:
+    - Value: arn:aws:s3:::test-awsfindingsmanagerlib
+      Comparison: EQUALS
+    WorkflowStatus:
+    - Value: NEW
+      Comparison: EQUALS
+    - Value: NOTIFIED
+      Comparison: EQUALS
+  UpdatesToFilteredFindings:
+    Note:
+      Text: Test test
+      UpdatedBy: awsfindingsmanagerlib
+  ExtraFeatures:
+    NoteTextConfig:
+      Mode: jsonUpdate
+      Key: suppressionReason

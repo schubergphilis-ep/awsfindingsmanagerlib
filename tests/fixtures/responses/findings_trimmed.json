@@ -1,0 +1,390 @@
+{
+    "Findings": [
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket blocks public access at the bucket level. The control fails if any of the following settings are set to false: ignorePublicAcls, blockPublicPolicy, blockPublicAcls, restrictPublicBuckets.",
+            "CreatedAt": "2025-12-09T08:53:43.702Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.8",
+            "Title": "S3.8 S3 general purpose buckets should block public access",
+            "UpdatedAt": "2025-12-09T08:53:43.702Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/2f428174-0020-4302-b474-386d400595dd",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks if Amazon S3 buckets have bucket level public access blocks applied. This control fails if any of the bucket level settings are set to \"false\" public: ignorePublicAcls, blockPublicPolicy, blockPublicAcls, restrictPublicBuckets.",
+            "CreatedAt": "2025-12-09T08:53:43.701Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "cis-aws-foundations-benchmark/v/3.0.0/2.1.4.2",
+            "Title": "2.1.4.2 S3 Block Public Access setting should be enabled at the bucket-level",
+            "UpdatedAt": "2025-12-09T08:53:43.701Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.4.2/finding/92696de8-2ccb-4cf0-bc67-fff41107ebbf",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket has a Lifecycle configuration. The control fails if the bucket doesn't have a Lifecycle configuration. You can provide custom values for one or more if the preceding parameters, the control passes only if the policy includes the specified storage class, deletion time, and transition time.",
+            "CreatedAt": "2025-12-09T08:53:40.568Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.13",
+            "Title": "S3.13 S3 general purpose buckets should have Lifecycle configurations",
+            "UpdatedAt": "2025-12-09T08:53:40.568Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.13/finding/7ce3cdfc-f380-45f7-9e41-15a0647cd289",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket provides user permissions with an access control list (ACL). The control fails if an ACL is configured for managing user access on the bucket.",
+            "CreatedAt": "2025-12-09T08:53:39.543Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.12",
+            "Title": "S3.12 ACLs should not be used to manage user access to S3 general purpose buckets",
+            "UpdatedAt": "2025-12-09T08:53:39.543Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.12/finding/05f135ae-c4db-4495-93c6-975dcbfdaa0b",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "At the Amazon S3 bucket level, you can configure permissions through a bucket policy making the objects accessible only through HTTPS.",
+            "CreatedAt": "2025-12-09T08:53:38.051Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "cis-aws-foundations-benchmark/v/3.0.0/2.1.1",
+            "Title": "2.1.1 S3 buckets should require requests to use Secure Socket Layer",
+            "UpdatedAt": "2025-12-09T08:53:38.051Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.1/finding/1f43e04b-3aad-4b87-9b18-763a970398b1",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket has a policy that requires requests to use SSL. The control fails if the bucket policy doesn't require requests to use SSL.",
+            "CreatedAt": "2025-12-09T08:53:38.051Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.5",
+            "Title": "S3.5 S3 general purpose buckets should require requests to use SSL",
+            "UpdatedAt": "2025-12-09T08:53:38.051Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.5/finding/229ec556-246b-47cb-86cb-ac6db6086ae5",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether server access logging is enabled for an Amazon S3 general purpose bucket. The control fails if server access logging isn't enabled. When logging is enabled, Amazon S3 delivers access logs for a source bucket to a chosen target bucket. The target bucket must be in the same AWS Region as the source bucket and must not have a default retention period configured. The target logging bucket does not need to have server access logging enabled, and you should suppress findings for this bucket.",
+            "CreatedAt": "2025-12-09T08:53:36.439Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.9",
+            "Title": "S3.9 S3 general purpose buckets should have server access logging enabled",
+            "UpdatedAt": "2025-12-09T08:53:36.439Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.9/finding/4aae4613-4a2a-4c27-a8a1-91fa808d16c3",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket permits public write access. It evaluates the block public access settings, the bucket policy, and the bucket access control list (ACL). The control fails if the bucket permits public write access.",
+            "CreatedAt": "2025-12-09T08:53:32.309Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.3",
+            "Title": "S3.3 S3 general purpose buckets should block public write access",
+            "UpdatedAt": "2025-12-09T08:53:32.309Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.3/finding/5c4b034f-393e-41ad-b175-cb79d87677e5",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "Once MFA Delete is enabled on your sensitive and classified S3 bucket it requires the user to have two forms of authentication.",
+            "CreatedAt": "2025-12-09T08:53:28.908Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "cis-aws-foundations-benchmark/v/3.0.0/2.1.2",
+            "Title": "2.1.2 S3 general purpose buckets should have MFA delete enabled",
+            "UpdatedAt": "2025-12-09T08:53:28.908Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.1.2/finding/8cafd2b7-73ff-4dae-8176-2127deff1b0a",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket permits public read access. It evaluates the block public access settings, the bucket policy, and the bucket access control list (ACL). The control fails if the bucket permits public read access.",
+            "CreatedAt": "2025-12-09T08:53:28.722Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.2",
+            "Title": "S3.2 S3 general purpose buckets should block public read access",
+            "UpdatedAt": "2025-12-09T08:53:28.722Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.2/finding/a25a258d-4e51-4860-ae08-47030a8dd8f5",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+            "Description": "This control checks whether an Amazon S3 general purpose bucket policy prevents principals from other AWS accounts from performing denied actions on resources in the S3 bucket. The control fails if the bucket policy allows one or more of the preceding actions for a principal in another AWS account.",
+            "CreatedAt": "2025-12-09T08:53:28.445Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "aws-foundational-security-best-practices/v/1.0.0/S3.6",
+            "Title": "S3.6 S3 general purpose bucket policies should restrict access to other AWS accounts",
+            "UpdatedAt": "2025-12-09T08:53:28.445Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:securityhub:eu-west-1:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.6/finding/c6af1ca0-5e77-4aec-bbf5-44c68de1d4d9",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z",
+                            "Name": "test-awsfindingsmanagerlib"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config",
+            "Description": "This finding is created for a resource compliance change for config rule: s3-bucket-public-write-prohibited-conformance-pack-q08q9ddkd",
+            "CreatedAt": "2025-12-09T08:53:23.308Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-f9k28d",
+            "Title": "s3-bucket-public-write-prohibited-conformance-pack-q08q9ddkd",
+            "UpdatedAt": "2025-12-09T08:53:23.308Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-f9k28d/finding/c0255ae72755ecd8b32b21e12fc1f41972dba902",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config",
+            "Description": "This finding is created for a resource compliance change for config rule: s3-bucket-public-read-prohibited-conformance-pack-q08q9ddkd",
+            "CreatedAt": "2025-12-09T08:53:23.295Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-4xm5jr",
+            "Title": "s3-bucket-public-read-prohibited-conformance-pack-q08q9ddkd",
+            "UpdatedAt": "2025-12-09T08:53:23.295Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-4xm5jr/finding/05d58ef6c22e11d3c6901c5a572c03218a516577",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config",
+            "Description": "This finding is created for a resource compliance change for config rule: OrgConfigRule-S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED-ffm3onfn",
+            "CreatedAt": "2025-12-09T08:53:23.249Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-multiaccountsetup.amazonaws.com/config-rule-rl0hpr",
+            "Title": "OrgConfigRule-S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED-ffm3onfn",
+            "UpdatedAt": "2025-12-09T08:53:23.249Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-multiaccountsetup.amazonaws.com/config-rule-rl0hpr/finding/762fdd3fef679ed6db82adbd42095feab2841c77",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        },
+        {
+            "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config",
+            "Description": "This finding is created for a resource compliance change for config rule: s3-bucket-level-public-access-prohibited-conformance-pack-q08q9ddkd",
+            "CreatedAt": "2025-12-09T08:53:23.224Z",
+            "SchemaVersion": "2018-10-08",
+            "GeneratorId": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-3ol7hu",
+            "Title": "s3-bucket-level-public-access-prohibited-conformance-pack-q08q9ddkd",
+            "UpdatedAt": "2025-12-09T08:53:23.224Z",
+            "AwsAccountId": "123456789012",
+            "Id": "arn:aws:config:eu-west-1:123456789012:config-rule/aws-service-rule/config-conforms.amazonaws.com/config-rule-3ol7hu/finding/11eff3ac751abb34509f4059d6286fd12898c93a",
+            "Resources": [
+                {
+                    "Partition": "aws",
+                    "Type": "AwsS3Bucket",
+                    "Details": {
+                        "AwsS3Bucket": {
+                            "OwnerId": "000verylongstring000",
+                            "CreatedAt": "2025-12-09T08:52:34.000Z"
+                        }
+                    },
+                    "Region": "eu-west-1",
+                    "Id": "arn:aws:s3:::test-awsfindingsmanagerlib"
+                }
+            ]
+        }
+    ]
+}
