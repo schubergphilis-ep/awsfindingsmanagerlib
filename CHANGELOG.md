@@ -7,6 +7,17 @@ Versions up to and including 1.5.0 were released from
 Version 2.0.0 is a complete rewrite with a different rules schema and Python API.
 See [UPGRADING.md](UPGRADING.md) before upgrading from 1.x.
 
+## [2.0.0](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/compare/v1.5.0...v2.0.0) (2026-10-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* awsfindingsmanagerlib 2.0 is a complete rewrite. The rules schema (match_on -> Filters/UpdatesToFilteredFindings), the Python API and the dependencies differ from 1.x, and Python >= 3.12 is required. See UPGRADING.md for the migration guide.
+
+### Features
+
+* re-write awsfindingsmanagerlib on the Security Hub boto3 API ([60e636c](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/commit/60e636cbb6536b4111a12aade15609369fe9e126))
+
 ### 1.5.0 (2026-06-25)
 
 * chore: update dependencies to latest and require Python >=3.10
