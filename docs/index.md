@@ -178,6 +178,19 @@ relative to the Lambda's working directory), which must be bundled into the depl
 `awsfindingsmanagerlib.aws_lambda.worker` never loads rules itself: it receives its single rule directly in
 the SQS message body.
 
+### Forcing the note format
+
+Setting the `NOTE_TEXT_CONFIG_MODE` environment variable (`plaintext` or `jsonUpdate`) makes the
+`events`, `worker` and `scheduled` handlers apply that note format to every rule, whatever the rules
+document says: it becomes `ManagerConfig.DefaultRuleInput.ExtraFeatures.NoteTextConfig`, and replaces
+any rule's own `ExtraFeatures.NoteTextConfig`, with a warning logged for each rule that set a different
+one. For `jsonUpdate`, `NOTE_TEXT_CONFIG_KEY` sets the key and defaults to `Note`.
+
+Use this when another integration depends on the note format, for instance a ticketing integration
+that stores metadata such as `jiraIssue` in the finding's note: with `NOTE_TEXT_CONFIG_MODE=jsonUpdate`,
+a suppression is always merged into that note instead of overwriting it. An unsupported value fails
+initialization in the same way an invalid rules document does.
+
 ### IAM permissions
 
 At minimum, the execution role needs `securityhub:GetFindings` and

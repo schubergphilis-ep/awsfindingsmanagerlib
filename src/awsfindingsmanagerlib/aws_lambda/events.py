@@ -16,6 +16,9 @@ from awsfindingsmanagerlib.aws_lambda.clients import (
     get_securityhub_client,
 )
 from awsfindingsmanagerlib.aws_lambda.logging import get_logger
+from awsfindingsmanagerlib.aws_lambda.note_text_override import (
+    apply_note_text_config_override,
+)
 from awsfindingsmanagerlib.aws_lambda.rules_backend import load_rules
 
 LOGGER = get_logger()
@@ -44,7 +47,8 @@ def lambda_handler(event: dict[str, Any], _context: object) -> dict[str, str]:
 
     try:
         manager = Manager.from_rules_document(
-            load_rules(s3_client=get_s3_client()), get_securityhub_client()
+            apply_note_text_config_override(load_rules(s3_client=get_s3_client())),
+            get_securityhub_client(),
         )
     except Exception:
         LOGGER.exception("Failed to initialize the findings manager; skipping.")

@@ -19,6 +19,9 @@ from typing import Any
 from awsfindingsmanagerlib import Manager
 from awsfindingsmanagerlib.aws_lambda.clients import get_securityhub_client
 from awsfindingsmanagerlib.aws_lambda.logging import get_logger
+from awsfindingsmanagerlib.aws_lambda.note_text_override import (
+    apply_note_text_config_override,
+)
 
 LOGGER = get_logger()
 
@@ -49,7 +52,9 @@ def lambda_handler(
     for record in event.get("Records", []):
         try:
             rule = json.loads(record["body"])
-            manager = Manager.from_rules_document(rule, get_securityhub_client())
+            manager = Manager.from_rules_document(
+                apply_note_text_config_override(rule), get_securityhub_client()
+            )
             manager.get_and_update_all()
         except Exception:
             LOGGER.exception(
