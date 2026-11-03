@@ -7,6 +7,18 @@ Versions up to and including 1.5.0 were released from
 Version 2.0.0 is a complete rewrite with a different rules schema and Python API.
 See [UPGRADING.md](UPGRADING.md) before upgrading from 1.x.
 
+## [2.1.0](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/compare/v2.0.0...v2.1.0) (2026-11-03)
+
+
+### Features
+
+* force the note text configuration from the Lambda environment ([#8](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/issues/8)) ([dd224bd](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/commit/dd224bd804771df67b21d7c347dbbc12fa9a9d84))
+
+
+### Documentation
+
+* make upgrading conversion script self-contained and validated ([#7](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/issues/7)) ([f1edc3a](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/commit/f1edc3a0d938e99efa7695eef7cea9a7537ef1fa))
+
 ## [2.0.0](https://github.com/schubergphilis-ep/awsfindingsmanagerlib/compare/v1.5.0...v2.0.0) (2026-10-19)
 
 
