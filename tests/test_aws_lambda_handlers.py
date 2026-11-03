@@ -123,6 +123,22 @@ class TestEventsHandler(TestCase):
             result = events.lambda_handler(event, FAKE_CONTEXT)
         self.assertEqual(result, {"finding_state": "skipped"})
 
+    def test_forces_the_note_text_config_from_the_environment(self):
+        event = {"detail": {"findings": [FINDING_GROOMED]}}
+        with (
+            patch.dict("os.environ", {"NOTE_TEXT_CONFIG_MODE": "jsonUpdate"}),
+            patch.object(events, "load_rules", return_value={"Rules": []}),
+            patch.object(
+                Manager, "from_rules_document", side_effect=RuntimeError("stop")
+            ) as from_rules_document,
+        ):
+            events.lambda_handler(event, FAKE_CONTEXT)
+        document = from_rules_document.call_args.args[0]
+        self.assertEqual(
+            document["ManagerConfig"]["DefaultRuleInput"]["ExtraFeatures"],
+            {"NoteTextConfig": {"Mode": "jsonUpdate", "Key": "Note"}},
+        )
+
 
 class TestTriggerHandler(TestCase):
     def test_sends_one_message_per_rule_with_the_manager_config(self):
@@ -221,6 +237,32 @@ class TestWorkerHandler(TestCase):
         ):
             result = worker.lambda_handler(event, FAKE_CONTEXT)  # must not raise
         self.assertEqual(result, {"batchItemFailures": [{"itemIdentifier": "msg-bad"}]})
+
+    def test_forces_the_note_text_config_from_the_environment(self):
+        rule = {
+            **JSON_RULES[0],
+            "ExtraFeatures": {"NoteTextConfig": {"Mode": "plaintext"}},
+        }
+        event = {
+            "Records": [
+                {
+                    "messageId": "msg-1",
+                    "body": json.dumps({"ManagerConfig": {}, "Rules": [rule]}),
+                }
+            ]
+        }
+        with (
+            patch.dict("os.environ", {"NOTE_TEXT_CONFIG_MODE": "jsonUpdate"}),
+            patch.object(
+                Manager, "from_rules_document", side_effect=RuntimeError("stop")
+            ) as from_rules_document,
+        ):
+            worker.lambda_handler(event, FAKE_CONTEXT)
+        document = from_rules_document.call_args.args[0]
+        self.assertEqual(
+            document["Rules"][0]["ExtraFeatures"]["NoteTextConfig"],
+            {"Mode": "jsonUpdate", "Key": "Note"},
+        )
 
 
 class TestScheduledHandler(TestCase):

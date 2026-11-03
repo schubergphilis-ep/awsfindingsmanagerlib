@@ -19,3 +19,9 @@ for the deployment contract (triggers, environment variables, IAM permissions).
 
 See `awsfindingsmanagerlib.Manager.from_rules_document` (in "Main top-level functionality") for turning the
 loaded document into a ready-to-use `Manager`.
+
+## Forcing the note format
+
+::: awsfindingsmanagerlib.aws_lambda.note_text_override.apply_note_text_config_override
+
+::: awsfindingsmanagerlib.aws_lambda.note_text_override.get_note_text_config_override
