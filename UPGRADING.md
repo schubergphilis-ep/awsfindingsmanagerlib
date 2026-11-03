@@ -76,12 +76,39 @@ Individual rules can override anything set there.
 #### Conversion script
 
 The script below converts a 1.x `rules.yaml` to a complete 2.0 document, including the `ManagerConfig` above.
-Review the `ManagerConfig` block it prints and adjust it to the defaults you relied on.
+It declares its own dependencies ([PEP 723](https://peps.python.org/pep-0723/)), so with
+[uv](https://docs.astral.sh/uv/) you can save it as `convert.py` and run it directly:
+
+```shell
+uv run convert.py rules.yaml > rules-v2.yaml
+```
+
+The input path is optional (default: `rules.yaml`). The converted document goes to stdout, and it is validated with
+`awsfindingsmanagerlib` itself before it is printed, so a failure means the result is not a valid 2.0 document.
+No AWS credentials are needed. Review the `ManagerConfig` block it prints and adjust it to the defaults you relied on.
 
 ```python
+# /// script
+# requires-python = ">=3.12,<3.13"  # awsfindingsmanagerlib 2.0.0 does not yet run on 3.13
+# dependencies = ["awsfindingsmanagerlib>=2,<3", "pyyaml"]
+# ///
+import sys
+from pathlib import Path
+
+import boto3
 import yaml
 
-old_rules = yaml.safe_load(open("rules.yaml"))["Rules"]
+from awsfindingsmanagerlib import Manager
+
+SUPPORTED_MATCH_ON_KEYS = {
+    "security_control_id",
+    "rule_or_control_id",
+    "title",
+    "product_name",
+    "regions",
+    "tags",
+    "resource_id_regexps",
+}
 
 
 def equals(values):
@@ -90,6 +117,12 @@ def equals(values):
 
 def convert(rule):
     match_on = rule.get("match_on", {})
+    unknown_keys = set(match_on) - SUPPORTED_MATCH_ON_KEYS
+    if unknown_keys:
+        # Fail rather than silently drop a condition and suppress too much.
+        msg = f"Unsupported match_on key(s) {sorted(unknown_keys)} in rule: {rule}"
+        raise ValueError(msg)
+
     filters = {}
 
     if "security_control_id" in match_on:
@@ -134,6 +167,13 @@ def convert(rule):
     return new_rule
 
 
+input_path = Path(sys.argv[1] if len(sys.argv) > 1 else "rules.yaml")
+with input_path.open() as file:
+    old_document = yaml.safe_load(file)
+
+if "Rules" not in old_document:
+    sys.exit(f"{input_path} has no top-level 'Rules' key. Is it a 1.x rules file?")
+
 document = {
     "ManagerConfig": {
         "DefaultRuleInput": {
@@ -148,10 +188,19 @@ document = {
             },
         },
     },
-    "Rules": [convert(rule) for rule in old_rules],
+    "Rules": [convert(rule) for rule in old_document["Rules"]],
 }
 
-print(yaml.dump(document, sort_keys=False, indent=2))
+# Validate against botocore's service model. This makes no AWS calls and needs no
+# credentials; the region is only required to create the client.
+client = boto3.client("securityhub", region_name="us-east-1")
+Manager.from_rules_document(document, client)
+
+print(yaml.safe_dump(document, sort_keys=False, indent=2))
+print(
+    f"Converted {len(document['Rules'])} rules; the result is a valid 2.0 rules document.",
+    file=sys.stderr,
+)
 ```
 
 See `docs/examples/rules.yaml` in this repository for a complete, converted file.
